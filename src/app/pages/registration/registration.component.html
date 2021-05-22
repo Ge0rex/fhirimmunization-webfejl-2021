@@ -1,0 +1,36 @@
+<div class="centering">
+<mat-card class="reg-card">
+<form [formGroup]="form" (ngSubmit)="registration()">
+    <h3>NEM HOZ LÉTRE FELHASZNÁLÓT</h3>
+    <mat-form-field class="max-width">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" name="nickname" placeholder="example: godhasabandonedme23" required formControlName="username">
+      </mat-form-field>
+      <mat-form-field class="max-width">
+        <mat-label>E-mail</mat-label>
+        <input matInput type="email" name="email" placeholder="example: test@test.com" required formControlName="email">
+        <mat-hint>Contains @</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="max-width">
+        <mat-label>Password</mat-label>
+        <input type="password" name="password" matInput placeholder="Password" formControlName="password1">
+        <mat-hint align="end">min. length 3 / {{form.value.password1.length}}</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="max-width">
+        <mat-label>Password</mat-label>
+        <input type="password" name="password" matInput #password2 placeholder="Password again"
+          formControlName="password2">
+        <mat-hint align="end">min. length 3 / {{password2.value.length}}</mat-hint>
+      </mat-form-field>
+      <mat-chip-list *ngIf="error">
+        <mat-chip color="warn" class="max-width" style="margin-top: 16px;" selected>
+          Passwords don't match
+        </mat-chip>
+      </mat-chip-list>
+    <br>
+    <div><button mat-button color="accent" [routerLink]="['/login']">LOGIN</button></div>
+    <br>
+    <button type="submit" mat-raised-button color="primary" class="max-width" [disabled]="form.invalid">REGISTER</button>
+</form>
+</mat-card>
+</div>

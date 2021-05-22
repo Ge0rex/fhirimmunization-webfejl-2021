@@ -1,0 +1,37 @@
+<form [formGroup]="form">
+    <h3>Add reaction</h3>
+    <mat-form-field class="max-width">
+      <mat-label>Detail</mat-label>
+      <textarea matInput placeholder="Detail of the reaction" focus formControlName="detail"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="max-width">
+      <mat-label >Date of reaction</mat-label>
+      <textarea placeholder="When reaction started" formControlName="reactiondate" matInput cdkTextareaAutosize pattern="^\d{4}\/(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])$"
+        cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+        <mat-hint align="end">Year/Month/Day</mat-hint>
+        <br>
+    </mat-form-field>
+
+<br>
+      <mat-label>Self-Reported?</mat-label><br>
+  <table class="max-width margin-bottom" cellspacing="0">
+    <tr style="display: flex; align-items: center;">
+      
+      <td style="flex: 1; padding-left: 8px; padding-bottom: 10px; padding-top: 10px; justify-content: space-between;">
+        <mat-radio-group  formControlName="reported" class="max-width">
+          <mat-radio-button style="padding-right: 5px;" value=true>Yes</mat-radio-button>
+          <mat-radio-button style="padding-right: 5px;" value=false>No</mat-radio-button>
+        </mat-radio-group>
+     
+      </td>
+  </tr>
+  </table>
+ 
+
+
+    <div style="display: flex; justify-content: flex-end;">
+      <button mat-button (click)="dialogRef.close()" class="margin-right">CANCEL</button>
+      <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">ADD</button>
+    </div>
+  </form>

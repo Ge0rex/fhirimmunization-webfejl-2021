@@ -1,0 +1,26 @@
+<mat-card *ngIf="patient" (click)="getPatient.emit(patient)">
+    <mat-card-header>
+      <mat-card-title class="stats">{{patient.name}} <br></mat-card-title>
+      <mat-card-subtitle>
+        <div class=gender>{{'Address: '+patient.address}}</div>
+        <div class=gender >{{'Gender: '+patient.gender}}</div>
+
+        <div class=gender>{{'Date of birth: '+patient.birthdate}}</div>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        
+    </mat-card-content>
+    <mat-card-actions *ngIf="patient">
+      <button mat-button (click)="openDialogUpdatePatient($event)">
+          <mat-icon><span class="material-icons-outlined">
+            edit
+            </span></mat-icon>
+      </button>
+      <button mat-button (click)="DeletePatient($event)">
+        <mat-icon><span class="material-icons-outlined">
+          delete
+          </span></mat-icon>
+    </button>
+    </mat-card-actions>
+  </mat-card>

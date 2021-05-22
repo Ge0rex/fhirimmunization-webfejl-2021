@@ -1,0 +1,23 @@
+<mat-card *ngIf="patient" (click)="getPatient.emit(patient)">
+    <mat-card-header>
+      <mat-card-title class="stats">{{patient.name}} <br></mat-card-title>
+      <mat-card-subtitle class="stats">
+        <div class=gender >{{'VaccineCode: '+patient.vaccinecode}}</div>
+        <div class=gender >{{'Occurence: '+patient.occurence}}</div>
+        <div *ngIf="patient.reasoncode" class="stats">{{'ReasonCode: '+patient.reasoncode}}</div>
+        <div *ngIf="patient.route" class="stats">{{'Route: '+patient.route}}</div>
+        <div class=gender style="font-size: larger;"[style.Color]="patient.status == 'completed' ? 'green' : 'red'">{{'Status: '+patient.status}}</div>
+
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        
+    </mat-card-content>
+    <mat-card-actions *ngIf="patient">
+      <button mat-button (click)="openDialogUpdateImmunization($event)">
+          <mat-icon><span class="material-icons-outlined">
+            medication
+            </span></mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>

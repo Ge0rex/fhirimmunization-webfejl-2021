@@ -1,0 +1,27 @@
+
+    
+<mat-card *ngIf="reaction">
+  <mat-card-header>
+    <mat-card-title class="stats">{{reaction.detail}} <br></mat-card-title>
+    <mat-card-subtitle>
+      <div *ngIf="reaction.reactiondate" class="stats">{{'Date of report: '+reaction.reactiondate}}</div>
+      <div *ngIf="reaction.reported" class="stats">{{'Self-reported: '+reaction.reported}}</div>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+      
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="reaction">
+    <button mat-button (click)="openDialogUpdateReaction($event)">
+        <mat-icon><span class="material-icons-outlined">
+          edit
+          </span></mat-icon>
+    </button>
+    <button mat-button (click)="DeleteReaction($event)">
+      <mat-icon><span class="material-icons-outlined">
+        delete
+        </span></mat-icon>
+  </button>
+  </mat-card-actions>
+</mat-card>

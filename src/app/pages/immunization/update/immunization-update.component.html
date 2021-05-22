@@ -1,0 +1,69 @@
+<form [formGroup]="form">
+    <h3>Modify immunization</h3>
+    <mat-form-field class="max-width">
+      <mat-label >Occurence</mat-label>
+      <textarea placeholder="Vaccine administration date" formControlName="occurence" matInput cdkTextareaAutosize pattern="^\d{4}\/(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])$"
+        cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5" required></textarea>
+        <mat-hint align="end">Year/Month/Day</mat-hint>
+        <br>
+    </mat-form-field>
+    <br>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Vaccine product administered</mat-label>
+        <select matNativeControl formControlName="vaccinecode" required>
+          <option value="Pfizer">Pfizer</option>
+          <option value="Moderna">Moderna</option>
+          <option value="AstraZeneca">AstraZeneca</option>
+          <option value="Sputnik V">Sputnik V</option>
+          <option value="Johnson & Johnson">Johnson & Johnson</option>
+          <option value="Sinopharm">Sinopharm</option>
+        </select>
+      </mat-form-field>
+<br>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Why immunization occured</mat-label>
+        <select matNativeControl formControlName="reasoncode" required>
+          <option value="Travel vaccinations">Travel vaccinations</option>
+          <option value="Procedure to meet occupational requirement">Procedure to meet occupational requirement</option>
+          <option value="Travel vaccinations and Procedure to meet occupational requirement">Both</option>
+        </select>
+      </mat-form-field>
+
+      <br>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>How vaccine entered body</mat-label>
+        <select matNativeControl formControlName="route" required>
+          <option value="Injection, intradermal">Injection, intradermal</option>
+          <option value="Injection, intramuscular">Injection, intramuscular</option>
+          <option value="Inhalation, nasal">Inhalation, nasal</option>
+          <option value="Injection, intravenous">Injection, intravenous</option>
+          <option value="Swallow, oral">Swallow, oral</option>
+          <option value="Injection, subcutaneous">Injection, subcutaneous</option>
+          <option value="Transdermal">Transdermal</option>
+
+        </select>
+      </mat-form-field>
+
+      
+  <table class="max-width margin-bottom" cellspacing="0">
+    <mat-label>Status</mat-label><br>
+    <tr style="display: flex; align-items: center;">
+      
+      <td style="flex: 1; padding-left: 8px; padding-bottom: 10px; padding-top: 10px; justify-content: space-between;">
+        <mat-radio-group  formControlName="status" class="max-width">
+          <mat-radio-button style="padding-right: 5px;" value="completed">completed</mat-radio-button>
+          <mat-radio-button style="padding-right: 5px;" value="not-done">not-done</mat-radio-button>
+        </mat-radio-group>
+     
+      </td>
+  </tr>
+  </table>
+
+    <div style="display: flex; justify-content: flex-end;">
+      <button mat-button (click)="dialogRef.close()" class="margin-right">CANCEL</button>
+      <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">CONFIRM</button>
+    </div>
+  </form>

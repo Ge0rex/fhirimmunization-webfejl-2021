@@ -1,0 +1,25 @@
+<mat-card *ngIf="performer">
+    <mat-card-header>
+      <mat-card-title  class="stats">{{performer.actor}}</mat-card-title>
+      <mat-card-subtitle *ngIf="performer.function"><br><h4 class="stats">{{'Function: '+performer.function}}</h4></mat-card-subtitle>
+     
+    </mat-card-header>
+    <mat-card-content>
+     
+    </mat-card-content>
+
+    <mat-card-actions *ngIf="performer">
+      <button mat-button (click)="openDialogUpdatePerformer($event)">
+          <mat-icon><span class="material-icons-outlined">
+            edit
+            </span></mat-icon>
+      </button>
+      <button mat-button (click)="DeletePerformer($event)">
+        <mat-icon><span class="material-icons-outlined">
+          delete
+          </span></mat-icon>
+    </button>
+    </mat-card-actions>
+  </mat-card>
+
+  

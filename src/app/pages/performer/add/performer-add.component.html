@@ -1,0 +1,28 @@
+<form [formGroup]="form">
+    <h3>Add performer</h3>
+    <mat-form-field class="max-width">
+      <mat-label>Actor</mat-label>
+      <textarea matInput placeholder="Individual or organization who was performing" focus formControlName="actor"></textarea>
+    </mat-form-field>
+
+<br>
+      <mat-label>Function</mat-label><br>
+  <table class="max-width margin-bottom" cellspacing="0">
+    <tr style="display: flex; align-items: center;">
+      <td style="flex: 1; padding-left: 8px; padding-bottom: 10px; padding-top: 10px; justify-content: space-between;">
+        <mat-radio-group  formControlName="function" class="max-width">
+          <mat-radio-button style="padding-right: 5px;" value='Ordering provider'>Ordering provider</mat-radio-button>
+          <mat-radio-button style="padding-right: 5px;" value='Administering provider'>Administering provider</mat-radio-button>
+        </mat-radio-group>
+     
+      </td>
+  </tr>
+  </table>
+ 
+
+
+    <div style="display: flex; justify-content: flex-end;">
+      <button mat-button (click)="dialogRef.close()" class="margin-right">CANCEL</button>
+      <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">ADD</button>
+    </div>
+  </form>

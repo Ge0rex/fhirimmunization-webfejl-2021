@@ -1,0 +1,45 @@
+<form [formGroup]="form">
+    <h3>Add patient</h3>
+    <mat-form-field class="max-width">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Patient's name" focus formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field class="max-width">
+      <mat-label >Date of birth</mat-label>
+      <textarea placeholder="Patient's birthdate" formControlName="birthdate" matInput cdkTextareaAutosize pattern="^\d{4}\/(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])$"
+        cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5" required></textarea>
+        <mat-hint align="end">Year/Month/Day</mat-hint>
+        <br>
+    </mat-form-field>
+
+<br>
+      <mat-label>Gender</mat-label><br>
+  <table class="max-width margin-bottom" cellspacing="0">
+    <tr style="display: flex; align-items: center;">
+      
+      <td style="flex: 1; padding-left: 8px; padding-bottom: 10px; padding-top: 10px; justify-content: space-between;">
+        <mat-radio-group  formControlName="gender" class="max-width">
+          <mat-radio-button style="padding-right: 5px;" value="Other">Other</mat-radio-button>
+          <mat-radio-button style="padding-right: 5px;" value="Male">Male</mat-radio-button>
+          <mat-radio-button style="padding-right: 5px;" value="Female">Female</mat-radio-button>
+        </mat-radio-group>
+     
+      </td>
+  </tr>
+  </table>
+ 
+    
+  
+      <mat-form-field class="max-width">
+        <mat-label>Address</mat-label>
+        <textarea placeholder="Patient's address" formControlName="address" matInput cdkTextareaAutosize
+          cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5" required ></textarea>
+          
+      </mat-form-field>
+
+    <div style="display: flex; justify-content: flex-end;">
+      <button mat-button (click)="dialogRef.close()" class="margin-right">CANCEL</button>
+      <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">ADD</button>
+    </div>
+  </form>
